@@ -8,7 +8,12 @@ const connection = mysql.createConnection({
     database: "employeetracker_db"
 })
 
-connection.connect();
+// possible remove error function
+connection.connect(function(err){
+ if (err) throw err;
+ console.log("connected as id" + connection.threadId + "\n") ; 
+
+});
 
 connection.query = util.promisify(connection.query);
 

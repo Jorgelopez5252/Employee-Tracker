@@ -86,7 +86,7 @@ async function addEmployee() {
     {
       type: "input",
       name: "What is the Employee's First Name?",
-      // value: "emp_first_name"
+      values: "emp_first_name"
     }
   ]);
   console.log(empFirstName)
