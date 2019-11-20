@@ -86,7 +86,7 @@ async function addEmployee() {
     {
       type: "input",
       name: "What is the Employee's First Name?",
-      value: "emp_first_name"
+      // value: "emp_first_name"
     }
   ]);
   console.log(empFirstName)
@@ -94,10 +94,29 @@ async function addEmployee() {
     {
       type: "input",
       name: "What is the Employee's Last Name?",
-      value: "emp_last_name"
+      // value: "emp_last_name"
     }
   ]);
   console.log(empLastName)
+  const empRole = await prompt([
+    {
+      type: "list",
+      name: "What is the Employee's role?",
+      choices:["SALES LEAD", "SALES PERSON", "LEAD ENGINEER", "SOFTWARE ENGINEER", "ACCOUNT MANAGER", "ACCOUNTANT", "LEGAL TEAM LEAD"]
+      // value: "emp_role"
+    }
+  ]);
+  console.log(empRole)
+  const empManger = await prompt([
+    {
+      type: "list",
+      name: "Who is the Employee's Manger?",
+      choices:["Bossman Headhoncho", "Bigchief Headhoncho", "Bigboi Headhoncho"]
+      // value: "emp_role"
+    }
+  ]);
+  console.log(empManger)
+  return CallPrompt();
 }
 
 async function deleteEmployee() {}
