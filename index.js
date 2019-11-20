@@ -77,26 +77,31 @@ async function viewEmployees() {
   CallPrompt();
 }
 
-async function viewEmployeesByDepartment() {
+async function viewEmployeesByDepartment() {}
 
-}
-
-async function viewEmployeesByManager() {
-
-}
+async function viewEmployeesByManager() {}
 
 async function addEmployee() {
-
+  const empFirstName = await prompt([
+    {
+      type: "input",
+      name: "What is the Employee's First Name?",
+      value: "emp_first_name"
+    }
+  ]);
+  console.log(empFirstName)
+  const empLastName = await prompt([
+    {
+      type: "input",
+      name: "What is the Employee's Last Name?",
+      value: "emp_last_name"
+    }
+  ]);
+  console.log(empLastName)
 }
 
-async function deleteEmployee() {
+async function deleteEmployee() {}
 
-}
+async function updateEmployee() {}
 
-async function updateEmployee() {
-
-}
-
-async function viewAllRoles() {
-
-}
+async function viewAllRoles() {}
