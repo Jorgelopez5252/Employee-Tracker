@@ -9,9 +9,9 @@ class DB{
         );
     }
 
-    addemployee(){
-      return this.connection.query(" ")  
-    }
+    // addEmployee(){
+    //   return this.connection.query(" ")  
+    // }
 
 
 }
