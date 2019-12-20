@@ -1,4 +1,7 @@
-const { prompt } = require("inquirer");
+const inquirer = require("inquirer");
+////////////////////////////////////////
+const connection = require("./db/connection.js")
+/////////////////////////////////////////////
 require("console.table");
 const db = require("./db");
 
@@ -8,7 +11,7 @@ function init() {
 }
 
 async function CallPrompt() {
-  const { choice } = await prompt([
+  inquirer.prompt([
     {
       type: "list",
       name: "choice",
@@ -48,27 +51,30 @@ async function CallPrompt() {
         }
       ]
     }
-  ]);
-  switch (choice) {
-    case "view_employees":
-      return viewEmployees();
-    case "view_employees_by_department":
-      return viewEmployeesByDepartment();
-    case "view_employees_by_manager":
-      return viewEmployeesByManager();
-    case "add_employee":
-      return addEmployee();
-    case "delete_employee":
-      return deleteEmployee();
-    case "update_employee_role":
-      return updateEmployee();
-    case "update_employee_manager":
-      return updateEmployee();
-    case "view_all_roles":
-      return viewAllRoles();
-    default:
-      console.log("No options");
-  }
+  ]).then(function(choice) {
+    console.log(choice);
+    switch (choice.choice) {
+      case "view_employees":
+        return viewEmployees();
+      case "view_employees_by_department":
+        return viewEmployeesByDepartment();
+      case "view_employees_by_manager":
+        return viewEmployeesByManager();
+      case "add_employee":
+        return addEmployee();
+      case "delete_employee":
+        return deleteEmployee();
+      case "update_employee_role":
+        return updateEmployee();
+      case "update_employee_manager":
+        return updateEmployee();
+      case "view_all_roles":
+        return viewAllRoles();
+      default:
+        console.log("No options");
+    }
+  });
+  
 }
 
 async function viewEmployees() {
@@ -82,41 +88,41 @@ async function viewEmployeesByDepartment() {}
 async function viewEmployeesByManager() {}
 
 async function addEmployee() {
-  const empFirstName = await prompt([
+  inquirer.prompt([
     {
+      name: "emp_first_name",
       type: "input",
-      name: "What is the Employee's First Name?",
-      values: "emp_first_name"
-    }
-  ]);
-  console.log(empFirstName)
-  const empLastName = await prompt([
+      message: "What is the Employee's First Name?",
+      
+    },
     {
+      name: "emp_last_name",
       type: "input",
-      name: "What is the Employee's Last Name?",
-      // value: "emp_last_name"
-    }
-  ]);
-  console.log(empLastName)
-  const empRole = await prompt([
+      message: "What is the Employee's Last Name?",
+    },
     {
+      name: "emp_role",
       type: "list",
-      name: "What is the Employee's role?",
-      choices:["SALES LEAD", "SALES PERSON", "LEAD ENGINEER", "SOFTWARE ENGINEER", "ACCOUNT MANAGER", "ACCOUNTANT", "LEGAL TEAM LEAD"]
-      // value: "emp_role"
-    }
-  ]);
-  console.log(empRole)
-  const empManger = await prompt([
+      message: "What is the Employee's role?",
+      choices:["SALES LEAD", "SALES PERSON", "LEAD ENGINEER", "SOFTWARE ENGINEER", "ACCOUNT MANAGER", "ACCOUNTANT", "LEGAL TEAM LEAD"],
+    },
     {
+      name: "emp_role",
       type: "list",
-      name: "Who is the Employee's Manger?",
+      choices:["SALES LEAD", "SALES PERSON", "LEAD ENGINEER", "SOFTWARE ENGINEER", "ACCOUNT MANAGER", "ACCOUNTANT", "LEGAL TEAM LEAD"],
+      message: "What is the Employee's role?"
+    },
+    {
+      name: "emp_role",
+      type: "list",
+      message: "Who is the Employee's Manger?",
       choices:["Bossman Headhoncho", "Bigchief Headhoncho", "Bigboi Headhoncho"]
-      // value: "emp_role"
     }
-  ]);
-  console.log(empManger)
-  return CallPrompt();
+  ]).then(function(answer){
+    console.log(answer)
+
+  })
+  
 }
 
 async function deleteEmployee() {}
