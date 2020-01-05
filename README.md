@@ -16,21 +16,21 @@ This assignment is using SQL as a database. The premise is to track employees. T
 - [mySQL]-DataBase
 ​
 ### Screenshots
-​Phone Landing page ------------------- Phone Results page
 
-Main page
-![Image](public/assets/images/Capture1.PNG)
+
+
+![Image](assets/images/Capture1.PNG)
 ​
 
 
-Pricing Page
-![Image](public/assets/images/Capture2.PNG)
+
+![Image](assets/images/Capture2.PNG)
 ​
 
 
-Contact US
-![Image](public/assets/images/Capture3.PNG)
+C
+![Image](assets/images/Capture3.PNG)
 ​
 ### Link
 Check it out! 
- https://jorgelopez5252.github.io/Tempus/
+- [inquirer](- User inputs on the command line
