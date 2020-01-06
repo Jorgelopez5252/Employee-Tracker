@@ -33,4 +33,4 @@ C
 ​
 ### Link
 Check it out! 
-- [inquirer](- User inputs on the command line
+https://jorgelopez5252.github.io/Employee-Tracker/
